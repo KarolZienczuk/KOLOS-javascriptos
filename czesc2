@@ -1,0 +1,197 @@
+const currentUser = {
+    name: "name",
+    surname: "surname",
+    email: "email",
+    www: "www",
+    userType: "",
+    isActive: false,
+    
+    setActive(active){
+        this.isActive = active
+    },
+    
+    show(){
+        console.log("name: " + this.name + " surname: " + this.surname + " email: "+ this.email + " www: " + this.userType + " isActive: " + this.isActive)
+    }
+    
+}
+
+
+
+class Book {
+
+    constructor(){
+        this.users = [];
+    }
+
+    addUser(name,age,phone){
+        const user = {
+        name: name,
+        age: age,
+        phone: phone,
+        showUser() {
+                console.log(`Name: ${this.name}, Age: ${this.age}, Phone: ${this.phone}`);
+            }
+    };
+    this.users.push(user);
+    }
+    
+    showUsers() {
+        this.users.forEach(user => user.showUser());
+    }
+    
+    findByName(name) {
+        for(let i = 0; i < this.users.length; i++){
+            if(this.users[i].name === name){
+                this.users[i].showUser()
+            }
+        }
+    }
+    
+    findByPhone(phone) {
+        for(let i = 0; i < this.users.length; i++){
+            if(this.users[i].phone === phone){
+                this.users[i].showUser()
+            }
+        }
+    }
+    
+    getCount(){
+        console.log(this.users.length);
+    }
+}
+
+function generateRandom1(min,max){
+    return Math.floor(Math.random()*(max-min+1)+min)
+    }
+
+const text = {
+    
+    check(txt,word){
+       if(txt.includes(word)){
+           return true;
+       } else { return false; }
+        
+    },
+    
+    getCount(txt){
+        return txt.length
+    },
+    
+    getWordsCount(txt){
+        tab = txt.split(" ")
+    return tab.length
+    },
+    
+    setCapitalize(txt){
+        tab = txt.split(" ")
+        
+        for(let i = 0; i < tab.length; i++){
+            
+        tab[i] = tab[i][0].toUpperCase() + tab[i].slice(1)
+        }
+         return tab.join(" ");
+    },
+    
+    
+    setMix(txt){
+        tab = txt.split(" ")
+        
+        for(let i = 0; i < tab.length; i++){
+            let word = tab[i].split('');
+          
+          for(let j = 0; j < word.length; j++){
+            if(j % 2 === 0){
+                word[j] = word[j].toUpperCase();
+            }  
+          }  
+          tab[i] = word.join('')
+        }
+         return tab.join(" ");
+    },
+    
+    
+    generateRandom(lng){
+    tab = [];
+    for(let i = 0; i < lng; i++){
+    type = generateRandom1(1,2)
+    if(type == 1){
+        tab.push(String.fromCharCode(generateRandom1(65,90)));
+    } else {
+        tab.push(String.fromCharCode(generateRandom1(97,122)));
+    }
+    }
+    return tab.join('');
+    }
+    
+
+}
+
+
+String.prototype.mirror = function() {
+    return this.split('').reverse().join('');
+};
+
+
+function createCounter() {
+    let counter = 0;
+    
+    return function() {
+        counter++;
+        return counter;
+    };
+}
+
+//const counter1 = createCounter();
+//const counter2 = createCounter();
+
+//console.log(counter1());  // 1
+//console.log(counter1());  // 2
+//console.log(counter2());  // 1
+//console.log(counter2());  // 2
+//console.log(counter1());  // 3
+
+
+//console.log("tescik".mirror())
+
+
+
+//const sampleText = "ala ma kota i psa";
+//console.log("check:", text.check(sampleText, "kota")); 
+//console.log("getCount:", text.getCount(sampleText)); 
+//console.log("getWordsCount:", text.getWordsCount(sampleText)); 
+//console.log("setCapitalize:", text.setCapitalize(sampleText));  
+//console.log("setMix:", text.setMix(sampleText)); 
+//console.log("generateRandom:", text.generateRandom(10)); 
+
+
+//currentUser.show()
+//currentUser.setActive(true)
+//currentUser.show()
+
+
+//const book = new Book();
+
+//book.addUser("Ala", 28, "123");
+//book.addUser("Ola", 30, "456");
+//book.addUser("Ala", 22, "789");
+
+//book.showUsers();
+
+//book.findByName("Ala");
+//book.findByPhone("456");
+
+//book.getCount();
+
+
+
+
+
+
+
+
+
+
+
+
+
