@@ -1,0 +1,216 @@
+
+function printNumbers(liczba){
+    display = 1
+    while(liczba-- != 0){
+        console.log(display++)
+    }
+    
+}
+
+function generateRandom(min,max){
+    return Math.floor(Math.random()*(max-min+1)+min)
+    }
+
+
+
+function previev(){
+const tab = []
+
+for(let i = 0; i < 10; i++){
+    tab.push(generateRandom(1,20)) 
+}
+
+    value = 0
+    
+for(let i = 0; i < tab.length; i++){
+    value += ((tab[i] > 10) ? 1:0)
+}
+    
+for(let i = 0; i < tab.length; i++){
+    console.log(tab[i])
+}
+
+    
+    if(value >= 5){
+        console.log("udalo sie")} else{
+            console.log("niestety nie")
+        }
+    }
+    
+function checkPalindrom(word){
+    const reversed = word.split('').reverse().join('')
+    return (word === reversed) ? 1 : 0
+}
+
+function random(max){
+    return generateRandom(0,max)
+}
+   
+function zad6(){
+const tab = []
+
+for(let i = 0; i < 10; i++){
+    tab.push(random(10)) 
+}
+
+tab.sort((a, b) => a - b);
+
+value = 0
+for(let i = 0; i < tab.length; i++){
+    value += tab[i]
+}
+console.log("suma = " + value)
+console.log("srednia = " + value / tab.length)
+
+}   
+   
+   
+function   zad7(nums){
+    
+    const uniqueTab = [...new Set(nums)];
+    
+    //return nums.length - uniqueTab.length
+    return uniqueTab
+    
+}
+   
+   
+   
+function longestPrefix(tab){
+   let prefix = tab[0];
+   
+       for (let i = 1; i < tab.length; i++) {
+        const current = tab[i];
+
+       
+        while (!current.startsWith(prefix)) {
+            prefix = prefix.slice(0, -1); 
+
+            if (prefix === "") {
+                return "";
+            }
+        }
+    }
+    
+    
+    return prefix;
+    
+}
+   
+   function romanToInt(s) {
+    const values = {
+        'I': 1,
+        'V': 5,
+        'X': 10,
+        'L': 50,
+        'C': 100,
+        'D': 500,
+        'M': 1000
+    };
+
+    let result = 0;
+
+    for (let i = 0; i < s.length; i++) {
+        const current = values[s[i]];
+        const next = values[s[i + 1]];
+
+        if (next > current) {
+            result -= current;
+        } else {
+            result += current;
+        }
+    }
+
+    return result;
+}
+
+function zad10(str){
+const arr = [
+	[ 66,  97, 114, 100,   4,   2, 110,  11,   1,   6,  20, ],
+	[ 99,   3,  10, 122,  76, 101, 111,   3,  32, 100,   0, ],
+	[  6,  22,   1, 111,  32,  10, 110,   7,  97,  97,  67, ],
+	[ 60,  97, 116,  32, 100,  23,  97, 114, 100,  32,  34, ],
+	[  2, 106,  15,   6, 111,  56,  80,  20,  10,  86,  10, ],
+	[ 20, 110,  121, 32, 107,  55,  50,  99, 110, 105,   8, ],
+	[ 12,   9,  22, 102,  66, 100,  12, 105,  50,  76, 110, ],
+	[ 42,  81, 123,  92,  26,  98,  20,   1,  20,  11,  10, ],
+]
+x = 0;
+y = 0;
+tab_succes = [];
+tab = str.split('');
+    tab_succes.push(String.fromCharCode(arr[x][y]))
+for(let i = 0; i < tab.length; i++){
+    if(tab[i] == "r"){
+        y++;
+    }
+    if(tab[i] == "l"){
+        y--;
+    }
+    
+    if(tab[i] == "d"){
+        x++;
+    }
+    if(tab[i] == "u"){
+        x--;
+    }
+    
+    tab_succes.push(String.fromCharCode(arr[x][y]))
+    
+    final_string = tab_succes.join('')
+}
+
+console.log(final_string)
+
+}
+
+function zad11(string){
+    string = string.trim();
+    
+    tab = string.split(" ");
+    
+    last_word = tab[tab.length - 1]
+    
+return last_word.length
+}
+
+
+function climbStairs(n) {
+    if (n === 1) return 1;
+    if (n === 2) return 2;
+
+    let prev1 = 1; 
+    let prev2 = 2; 
+    let current = 0;
+
+    for (let i = 3; i <= n; i++) {
+        current = prev1 + prev2;
+        prev1 = prev2;
+        prev2 = current;
+    }
+
+    return current;
+}
+
+//console.log(zad11("Hello World"))
+
+//zad10("rrrdddllddrrruuuurrddrruurddddlld");
+   
+//console.log(romanToInt("MCMXCIV"))
+   
+// slowa = ["dupniak","dupek","duperele"]
+   
+// console.log(longestPrefix(slowa))
+   
+// nums = [0,0,1,1,2,3,4,5,5,6,6,7,8,9,9]
+   
+//console.log(zad7(nums))
+   
+//zad6()
+   
+//console.log(checkPalindrom("civic") ? "da" : "nah")
+    
+//previev()
+
+//printNumbers(17)
+
